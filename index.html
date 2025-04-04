@@ -11,9 +11,9 @@
     <!-- <script type="py" src="main.py"></script> //-->
   </head>
   <body class="container">
-    <h1 class="mx-auto">What Would Jesse Do?</h1>
+    <h1 class="text-center">What Would Jesse Do?</h1>
     <h2>An Oldest Brother Eulogy for Jesse Robert Nelson (1981-2025)</h2>
-    <h3>By Jeremy Nelson</h3>
+    <h3 class="text-center">By Jeremy Nelson</h3>
     <div class="row">
      <div class="col">
       <p>
@@ -191,10 +191,11 @@
         <a href="https://en.wikipedia.org/wiki/Kief,_North_Dakota">Kief</a>, and of course the old Catholic church
         and house in <a href="https://en.wikipedia.org/wiki/Balfour,_North_Dakota">Balfour</a>. We would spin yarns,
         Jesse tempering my initial enthusiasm for his ideas about turning the Belfour Church into a book and/or antiques 
-        store with a coffee shop. My contribution to this dream was that to heat the church/bookstore/cafe, we would 
-        incorporate various computer servers in the bookshelves to fine-tune my <a href="https://knowledgelinks.io">company's</a> LLMs 
-        and provide <a href="https://folio.org/">FOLIO</a> hosting marketed towards a Church Libraries 
-        (and other libraries of course) Catalogs</a>.
+        store with a coffee shop. My contribution to this dream was first a name, <strong>The North Dakota Book Co-op</strong>. 
+        To heat the church/bookstore/cafe, we would incorporate various computer servers in the bookshelves for 
+        fine-tuning my <a href="https://knowledgelinks.io">company's</a> LLMs while marketing hosted 
+         <a href="https://folio.org/">FOLIO Catalogs</a> to an underserved Church Libraries 
+        (and other libraries of course).
       </p>
       <p>
         In our last phone conversation mentioned above, we discussed planting multiple apple 
@@ -245,13 +246,14 @@
         <li class="d-none">Pizza and Pot are complementary goods</li>
         <li class="d-none">Watch less Television</li>
         <li class="d-none">Watch <a href="https://en.wikipedia.org/wiki/Office_Space">Office Space</a></li>
-        <li class="invisible">Be a night owl and early bird but take lots of naps</li>
-        <li class="invisible">If all your goats have names; they are pets and not livestock</li>
-        <li class="invisible">Cover a Bob Dylan song at your local bar's Open Mic</li>
+        <li class="d-none">Be a night owl and early bird but take lots of naps</li>
+        <li class="d-none">If all your goats have names; they are pets and not livestock</li>
+        <li class="d-none">Cover a Bob Dylan song at your local bar's Open Mic</li>
      </ul>
-        <button class="btn btn-success" id="showWWJD">More</button>
+        <button class="btn btn-success" onclick="revealWWJD()">More</button>
     </div>
     <h2>Thank-you!</h2>
+    <hr>
     <div class="row">
      <p class="col">
       Please email me at <a href="mailto:jermnelson@gmail.com">jermnelson@gmail.com</a> and I'll add your memories, photos, 
@@ -285,19 +287,18 @@
   gtag('config', 'G-8DVWG64H3Y');
 </script>
 <script>
-      document.getElementById('showWWJD').addEventListener('click', function() {
-    // Select all lists with the class 'd-none'
-    const hiddenLists = document.querySelectorAll('ul.d-none');
-    
-    if (hiddenLists.length > 0) {
-        // Pick a random list from the selected ones
-        const randomIndex = Math.floor(Math.random() * hiddenLists.length);
-        const randomList = hiddenLists[randomIndex];
+    function revealWWJD() {
+      // Select all hidden <li> elements
+      let hiddenItems = document.querySelectorAll("li.d-none");
+
+      if (hiddenItems.length > 0) {
+        // Pick a random index
+        let randomIndex = Math.floor(Math.random() * hiddenItems.length);
         
-        // Remove the 'd-none' class from the selected list
-        randomList.classList.remove('d-none');
-    }
- });
+        // Remove the 'd-none' class
+        hiddenItems[randomIndex].classList.remove("d-none");
+     }
+   }
 </script>
   </body>
 </html>
