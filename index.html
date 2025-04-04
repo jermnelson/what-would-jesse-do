@@ -215,7 +215,7 @@
         <li class="invisible">If all your goats have names; they are pets and not livestock</li>
         <li class="invisible">Cover a Bob Dylan song at your local bar's Open Mic</li>
      </ul>
-        <button class="btn btn-success" py-click="show_wwjd">More</button>
+        <button class="btn btn-success" id="showWWJD">More</button>
     </div>
     <h2>Thank-you!</h2>
     <p>
@@ -232,6 +232,21 @@
   gtag('js', new Date());
 
   gtag('config', 'G-8DVWG64H3Y');
+</script>
+<script>
+      document.getElementById('showWWJD').addEventListener('click', function() {
+    // Select all lists with the class 'd-none'
+    const hiddenLists = document.querySelectorAll('ul.d-none');
+    
+    if (hiddenLists.length > 0) {
+        // Pick a random list from the selected ones
+        const randomIndex = Math.floor(Math.random() * hiddenLists.length);
+        const randomList = hiddenLists[randomIndex];
+        
+        // Remove the 'd-none' class from the selected list
+        randomList.classList.remove('d-none');
+    }
+ });
 </script>
   </body>
 </html>
