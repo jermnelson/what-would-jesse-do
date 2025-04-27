@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1 class="text-center">What Would Jesse Do?</h1>
+<h2>An Oldest Brother Eulogy for Jesse Robert Nelson (1981-2025)</h2>
+<h3>By Jeremy Nelson</h3>
+{% include 'eulogy-intro.html' %}
+<hr>
+<div class="alert alert-light" role="alert">
+  An important disclosure - there are times when you certainly should <strong>NOT</strong> do 
+  what Jesse would do!
+  Like smoking cigarettes
+  <p style="font-size: 3em;" class="text-center">&#128685;</p>
+</div>
+<hr>
+<div class="row">
+  {% include 'jesse-childhood.html' %}
+  {% include 'jesse-preteen-teen.html' %}
+</div>
+<hr>
+<div class="row">
+  {% include 'jesse-high_school-after.html' %}
+  {% include 'jesse-early-2000s.html' %}
+</div>
+<hr>
+<div class="row">
+  {% include 'jesse-2010s-and-teens.html' %}
+  {% include 'jesse-last-years.html' %}
+</div>
+<hr>
+{% include 'eulogy-final-thoughts.html' %}
+<hr>
+{% include 'wwjd-widget.html' %}
+<hr>
+{% include 'cards/ai-card-group.html' %}
+{% endblock %}
