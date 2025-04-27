@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link active" aria-current="page" href="{{ prefix }}/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">About</a>
@@ -17,12 +17,12 @@
             Jesse's Life
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/index.html#jesse-childhood">Childhood</a></li>
-            <li><a class="dropdown-item" href="/index.html#pre-teen-and-teen">Pre-teen &amp; Teens</a></li>
-            <li><a class="dropdown-item" href="/index.html#high-school-and-after">High School &amp; After</a></li>
-            <li><a class="dropdown-item" href="/index.html#early-2000s">The Early 2000s</a></li>
-            <li><a class="dropdown-item" href="/index.html#2010s-and-teens">The 2010s and Teens</a></li>
-            <li><a class="dropdown-item" href="/index.html#last-years">The Last Years</a></li>
+            <li><a class="dropdown-item" href="{{ prefix }}/index.html#jesse-childhood">Childhood</a></li>
+            <li><a class="dropdown-item" href="{{ prefix }}/index.html#pre-teen-and-teen">Pre-teen &amp; Teens</a></li>
+            <li><a class="dropdown-item" href="{{ prefix }}/index.html#high-school-and-after">High School &amp; After</a></li>
+            <li><a class="dropdown-item" href="{{ prefix }}/index.html#early-2000s">The Early 2000s</a></li>
+            <li><a class="dropdown-item" href="{{ prefix }}/index.html#2010s-and-teens">The 2010s and Teens</a></li>
+            <li><a class="dropdown-item" href="{{ prefix }}/index.html#last-years">The Last Years</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -31,7 +31,7 @@
           </a>
           <ul class="dropdown-menu">
           {% for year in timeline %}
-            <li><a class="dropdown-item" href="/years/0{{ year }}.html">{{ year }}</a></li>
+            <li><a class="dropdown-item" href="{{ prefix }}/years/0{{ year }}.html">{{ year }}</a></li>
           {% endfor %} 
           </ul>
         </li>

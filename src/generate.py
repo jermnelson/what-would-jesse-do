@@ -1,5 +1,6 @@
 """Static site generator for What Would Jesse Do?"""
 __author__ = "Jeremy Nelson"
+import argparse
 import datetime
 import pathlib
 
@@ -14,11 +15,11 @@ env = Environment(
 
 all_years = range(1981, 2026)
 
-def timeline(site_path: pathlib.Path):
+def timeline(site_path: pathlib.Path, prefix: str=""):
     years = site_path / "years"
     year_template = env.get_template("year.html")
     for year in all_years:
-        year_html = year_template.render(year=year, timeline=all_years)
+        year_html = year_template.render(year=year, timeline=all_years, prefix=prefix)
         year_path = years / f"0{year}.html"
         with year_path.open("w+") as fo:
             fo.write(year_html)
@@ -28,9 +29,11 @@ def timeline(site_path: pathlib.Path):
 def website(**kwargs):
     generate_date: datetime.Datetime = kwargs["generation_date"]
     site_path: pathlib.Path = kwargs["site_path"]
+    prefix: str = kwargs.get("prefix", "")
     home_template = env.get_template("index.html")
     home_page = home_template.render(
         generated_on=generation_date,
+        prefix=prefix,
         timeline=all_years
     )
     
@@ -41,9 +44,13 @@ def website(**kwargs):
     print(f"\t{index_page_path.absolute()}")
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("prefix", help="URL prefix for publishing to Github", default="/what-would-jesse-do")
+    args = parser.parse_args()
+    prefix = args.prefix
     site_path = pathlib.Path(".")
     generation_date = datetime.datetime.now(datetime.UTC)
     print(f"Generating website on {generation_date.isoformat()}")
-    website(generation_date=generation_date, site_path=site_path)
-    timeline(site_path)
+    website(generation_date=generation_date, site_path=site_path, prefix=prefix)
+    timeline(site_path, prefix)
     
