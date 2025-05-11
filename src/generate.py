@@ -2,6 +2,7 @@
 __author__ = "Jeremy Nelson"
 import argparse
 import datetime
+import os
 import pathlib
 
 import markdown
@@ -14,6 +15,16 @@ env = Environment(
 )
 
 all_years = range(1981, 2026)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+root_path = pathlib.Path(os.path.dirname(current_dir))
+
+def from_markdown(file_name: str):
+    file_path = root_path / f"doc/{file_name}.md"
+    if not file_path.exists():
+        raise ValueError(f"{file_name} does not exist at {file_path}")
+    return markdown.markdown(file_path.read_text(),extensions=['meta'] )
+    
+env.filters["from_mkdwn"] = from_markdown
 
 def timeline(site_path: pathlib.Path, prefix: str=""):
     years = site_path / "years"
