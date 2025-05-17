@@ -23,7 +23,7 @@ and house in <a href="https://en.wikipedia.org/wiki/Balfour,_North_Dakota">Balfo
 Jesse tempering my initial enthusiasm for his ideas about turning the Belfour Church into a book and/or antiques 
 store with a coffee shop. My contribution to this dream was first a name, <strong>The North Dakota Book Co-op</strong>. 
 To heat the church/bookstore/cafe, we would incorporate various computer servers in the bookshelves for 
-fine-tuning my [company's]https://knowledgelinks.io) LLMs while marketing hosted 
+fine-tuning my [company's](https://knowledgelinks.io) LLMs while marketing hosted 
 [FOLIO Catalogs](https://folio.org/) to an underserved market of Church Libraries 
 (and other libraries of course).
 
