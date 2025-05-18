@@ -61,7 +61,7 @@ if __name__ == "__main__":
     prefix = args.prefix
     site_path = pathlib.Path(".")
     generation_date = datetime.datetime.now(datetime.UTC)
-    print(f"Generating website on {generation_date.isoformat()}")
+    print(f"Generating website on {generation_date.isoformat()} {prefix}")
     website(generation_date=generation_date, site_path=site_path, prefix=prefix)
     timeline(site_path, prefix)
     
