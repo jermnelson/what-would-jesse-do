@@ -1,6 +1,7 @@
 Title: Jesse Nelson Last Years
 Author:  Jeremy Nelson <https://orcid.org/0000-0002-7543-3893>
 Date: 02025-04-04
+Years: 02019,02020,02021,02022,02023,02024,02025
 
 ### The Last Years
 Following the peach orchards, he then worked as an electrician with my brother Jake. After his commercial

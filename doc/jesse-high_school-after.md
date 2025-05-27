@@ -1,6 +1,7 @@
 Title: Jesse Nelson High School and After
 Author: Jeremy Nelson <https://orcid.org/0000-0002-7543-3893>
 Date: 02025-04-04
+Years: 01997,01998,01999,02000,02001
 
 ### High School and After
 When I graduated from college, married my college girlfriend, and moved to 

@@ -22,7 +22,8 @@ def from_markdown(file_name: str):
     file_path = root_path / f"doc/{file_name}.md"
     if not file_path.exists():
         raise ValueError(f"{file_name} does not exist at {file_path}")
-    return markdown.markdown(file_path.read_text(),extensions=['meta'] )
+    converted_to_html = markdown.markdown(file_path.read_text(),extensions=['meta'] )
+    return converted_to_html
     
 env.filters["from_mkdwn"] = from_markdown
 
@@ -30,7 +31,11 @@ def timeline(site_path: pathlib.Path, prefix: str=""):
     years = site_path / "years"
     year_template = env.get_template("year.html")
     for year in all_years:
-        year_html = year_template.render(year=year, timeline=all_years, prefix=prefix)
+        year_md = site_path / f"doc/years/0{year}.md"
+        content = None
+        if year_md.exists():
+            content = markdown.markdown(year_md.read_text(), extensions=['meta'])
+        year_html = year_template.render(year=year, timeline=all_years, content=content, prefix=prefix)
         year_path = years / f"0{year}.html"
         with year_path.open("w+") as fo:
             fo.write(year_html)
