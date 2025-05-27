@@ -1,6 +1,7 @@
 Title: Jesse Nelson Childhood
 Author: Jeremy Nelson <https://orcid.org/0000-0002-7543-3893>
 Date: 02025-04-04
+Years: 01981,01982,01983,01984,01985,01986,01987
 
 ### Childhood
 Jesse was the first sibling whom I regularly changed his diapers.  His adventures as a toddler caused 

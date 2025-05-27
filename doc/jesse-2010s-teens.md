@@ -1,6 +1,7 @@
 Title: Jesse Nelson 02010s and Teens
 Author: Jeremy Nelson <https://orcid.org/0000-0002-7543-3893>
 Date: 02025-04-04
+Years: 02012,02013,02014,02015,02016,02017,02018
 
 ### The 2010s and Teens
 Jesse next worked as a manager for a Palisade Peach orchard in our hometown. I remember visiting him during a 

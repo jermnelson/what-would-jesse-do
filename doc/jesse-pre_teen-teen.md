@@ -1,6 +1,7 @@
 Title: Jesse Nelson 
 Author: Jeremy Nelson <https://orcid.org/0000-0002-7543-3893>
 Date: 02025-04-04
+Years: 01988,01989,01990,01991,01992,01993,01994,01995,01996
 
 ### Pre-teen &amp; Teen
 While I was in high school, my Mom wanted me to do something with Jesse. I suggested we go camping (I 

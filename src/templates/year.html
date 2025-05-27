@@ -2,4 +2,5 @@
 
 {% block main %}
 <h1>Jesse in {{ year }}</h1>
+{% if content %}{{ content|safe }}{% endif %}
 {% endblock %}
