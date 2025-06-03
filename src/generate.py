@@ -26,26 +26,53 @@ def from_markdown(file_name: str):
         raise ValueError(f"{file_name} does not exist at {file_path}")
     converted_to_html = markdown.markdown(file_path.read_text(),extensions=['meta'] )
     return converted_to_html
-    
-env.filters["from_mkdwn"] = from_markdown
+   
 
+def get_years(file_name: str):
+    file_path = root_path / f"doc/{file_name}.md"
+    if not file_path.exists():
+        raise ValueError(f"{file_name} does not exist at {file_path}")
+    md = markdown.Markdown(extensions=['meta'])
+    md.convert(file_path.read_text())
+    return [year.strip() for year in md.Meta.get("years")[0].split(",")]
+
+
+env.filters["from_mkdwn"] = from_markdown
+env.filters["get_years"] = get_years
 
 def cards(site_path: pathlib.Path, prefix: str=""):
     all_topics = load()
     return all_topics
     
+def cards_lookup(topics: list) -> dict:
+    lookup = {}
+    for topic in topics:
+        for year in topic.years:
+            year_num = int(year[1:])
+            if year_num in lookup:
+                lookup[year_num].append(topic)
+            else:
+                lookup[year_num] = [topic]
+    return lookup
 
 def timeline(site_path: pathlib.Path, prefix: str="", all_cards: list=None):
     years = site_path / "years"
     year_template = env.get_template("year.html")
     if all_cards is None:
         all_cards = []
+    cards_by_year = cards_lookup(all_cards)
     for year in all_years:
         year_md = site_path / f"doc/years/0{year}.md"
         content = None
         if year_md.exists():
             content = markdown.markdown(year_md.read_text(), extensions=['meta'])
-        year_html = year_template.render(year=year, timeline=all_years, content=content, prefix=prefix)
+        year_html = year_template.render(
+                        year=year,
+                        timeline=all_years,
+                        content=content, 
+                        prefix=prefix, 
+                        cards=cards_by_year.get(year, []),
+                        image_prefix="../")
         year_path = years / f"0{year}.html"
         with year_path.open("w+") as fo:
             fo.write(year_html)

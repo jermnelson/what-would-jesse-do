@@ -1,14 +1,16 @@
  <div class="card" style="width: 18rem;" id="{{ topic.path.name }}">
    {% for image in topic.card_images %}
-   <img src="static/imgs/{{ image.source }}" class="card-img-top" alt="{{ image.alt }}">
+   <img src="{{ image_prefix }}static/imgs/{{ image.source }}" class="card-img-top" alt="{{ image.alt }}">
    {% endfor %}
    <div class="card-body">
      <h5 class="card-title">{{ topic.title }}</h5>
      <h5 class="card-subtitle mb-2 text-body-secondary">
-     {# if topic.author.orchid %}<a href="{{ topic.author.orchid }}">{{ author.name }}</a>
-     {% else %}{{ author.name }}{% endif #}
+     {{ topic.author.name }}
      </h5>
      {{ topic.html|safe }}
+    </div>
+    <div class="card-footer text-body-secondary">
+     <strong>Year(s):</strong> {% for year in topic.years %}<a href="{{ prefix }}/years/{{ year }}.html">{{ year[1:] }}</a>{% if not loop.last %},{% endif %}{% endfor %}
     </div>
 </div>
 

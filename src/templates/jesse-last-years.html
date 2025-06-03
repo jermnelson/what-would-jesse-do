@@ -1,3 +1,11 @@
 <article class="col" id="last-years">
 {{ "jesse-last-years"|from_mkdwn|safe }}
+
+<div class="alert alert-secondary" role="alert">
+ <ul class="list-inline">
+   {% for year in "jesse-last-years"|get_years %}
+   <li class="list-inline-item"><a href="{{ prefix }}/years/{{ year }}.html">{{ year[1:] }}</a></li>
+   {% endfor %}
+ </ul>
+</div>
 </article>

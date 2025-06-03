@@ -1,5 +1,6 @@
 Title: AI and this Eulogy final
 Date: 02025-04-04
+Author: Jeremy Nelson <https://orcid.org/0000-0002-7543-3893>
 Years: 02024
 
 ![Jesse Nelson, David Nelson, and Cannon, the son of Gunner](jesse-david-cannon.jpeg)

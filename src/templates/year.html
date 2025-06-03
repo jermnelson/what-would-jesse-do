@@ -2,5 +2,14 @@
 
 {% block main %}
 <h1>Jesse in {{ year }}</h1>
-{% if content %}{{ content|safe }}{% endif %}
+  {% if content %}{{ content|safe }}{% endif %}
+{% for topics in cards|batch(3) %}
+<div class="row">
+  {% for topic in topics %}
+  <div class="col-3">
+  {% include 'cards/card.html' %}
+  </div>
+  {% endfor %}
+</div>
+{% endfor %}
 {% endblock %}

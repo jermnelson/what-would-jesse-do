@@ -8,15 +8,12 @@
    </p>
   </div>
 </div>
-<div class="row">
- {% for topic in cards %}
-   <div class="col">
+{% for topics in cards|batch(3) %}
+<div class="row mb-3">
+  {% for topic in topics %}
+   <div class="col-3">
    {% include 'cards/card.html' %} 
    </div>
-   {% if not loop.index0%3 and loop.index0 > 0 %}
-    </div>
-    <div class="row">
-   {% endif %}
-    {% endfor %}
-   </div>
+  {% endfor %}
 </div>
+{% endfor %}
