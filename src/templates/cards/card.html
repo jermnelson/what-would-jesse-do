@@ -1,0 +1,14 @@
+ <div class="card" style="width: 18rem;" id="{{ topic.path.name }}">
+   {% for image in topic.card_images %}
+   <img src="static/imgs/{{ image.source }}" class="card-img-top" alt="{{ image.alt }}">
+   {% endfor %}
+   <div class="card-body">
+     <h5 class="card-title">{{ topic.title }}</h5>
+     <h5 class="card-subtitle mb-2 text-body-secondary">
+     {# if topic.author.orchid %}<a href="{{ topic.author.orchid }}">{{ author.name }}</a>
+     {% else %}{{ author.name }}{% endif #}
+     </h5>
+     {{ topic.html|safe }}
+    </div>
+</div>
+

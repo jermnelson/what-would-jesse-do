@@ -9,6 +9,8 @@ import markdown
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+from topics import load
+
 env = Environment(
     loader=FileSystemLoader("src/templates"),
     autoescape=select_autoescape(['html', 'xml'])
@@ -27,9 +29,17 @@ def from_markdown(file_name: str):
     
 env.filters["from_mkdwn"] = from_markdown
 
-def timeline(site_path: pathlib.Path, prefix: str=""):
+
+def cards(site_path: pathlib.Path, prefix: str=""):
+    all_topics = load()
+    return all_topics
+    
+
+def timeline(site_path: pathlib.Path, prefix: str="", all_cards: list=None):
     years = site_path / "years"
     year_template = env.get_template("year.html")
+    if all_cards is None:
+        all_cards = []
     for year in all_years:
         year_md = site_path / f"doc/years/0{year}.md"
         content = None
@@ -47,10 +57,12 @@ def website(**kwargs):
     site_path: pathlib.Path = kwargs["site_path"]
     prefix: str = kwargs.get("prefix", "")
     home_template = env.get_template("index.html")
+    all_cards = cards(site_path=site_path, prefix=prefix)
     home_page = home_template.render(
         generated_on=generation_date,
         prefix=prefix,
-        timeline=all_years
+        timeline=all_years,
+        cards=all_cards
     )
     
     index_page_path = site_path / "index.html"
@@ -58,6 +70,7 @@ def website(**kwargs):
         fo.write(home_page)
 
     print(f"\t{index_page_path.absolute()}")
+    return all_cards
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -67,6 +80,6 @@ if __name__ == "__main__":
     site_path = pathlib.Path(".")
     generation_date = datetime.datetime.now(datetime.UTC)
     print(f"Generating website on {generation_date.isoformat()} {prefix}")
-    website(generation_date=generation_date, site_path=site_path, prefix=prefix)
-    timeline(site_path, prefix)
+    all_cards = website(generation_date=generation_date, site_path=site_path, prefix=prefix)
+    timeline(site_path, prefix, all_cards)
     

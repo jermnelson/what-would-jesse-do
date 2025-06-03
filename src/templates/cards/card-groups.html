@@ -1,0 +1,22 @@
+<div class="row">
+ <div class="col">
+   <p>
+     Please email me at <a href="mailto:jermnelson@gmail.com">jermnelson@gmail.com</a> or submit a 
+     Github <a href="https://github.com/jermnelson/what-would-jesse-do/issues">WWJD? Card Ticket</a>. I'll add your memories, photos, 
+     and your own WWJD?s to this website. You can also clone the 
+     <a href="https://github.com/jermnelson/what-would-jesse-do/">repository</a> and do a pull-request (I'll help &#9786)
+   </p>
+  </div>
+</div>
+<div class="row">
+ {% for topic in cards %}
+   <div class="col">
+   {% include 'cards/card.html' %} 
+   </div>
+   {% if not loop.index0%3 and loop.index0 > 0 %}
+    </div>
+    <div class="row">
+   {% endif %}
+    {% endfor %}
+   </div>
+</div>
