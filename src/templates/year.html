@@ -6,7 +6,7 @@
 {% for topics in cards|batch(3) %}
 <div class="row">
   {% for topic in topics %}
-  <div class="col-3">
+  <div class="col">
   {% include 'cards/card.html' %}
   </div>
   {% endfor %}
