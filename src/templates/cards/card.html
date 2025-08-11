@@ -2,6 +2,15 @@
    {% for image in topic.card_images %}
    <img src="{{ image_prefix }}static/imgs/{{ image.source }}" class="card-img-top" alt="{{ image.alt }}">
    {% endfor %}
+   {% for video in topic.card_videos %}
+   <video controls width="250">
+     <source src="{{ image_prefix }}static/video/{{ video.source }}" type-"{{ video.type }}" />
+     <p>
+       Your browser doesn't support HTML video. Here is the download
+       <a href="{{ image_prefix }}static/video/{{ video.source }}" download="{{ video.source }}">link</a>
+     </p>
+   </video>
+   {% endfor %}
    <div class="card-body">
      <h5 class="card-title">{{ topic.title }}</h5>
      <h5 class="card-subtitle mb-2 text-body-secondary">
