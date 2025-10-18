@@ -1,0 +1,29 @@
+{
+  "name": "What Would Jesse Do? Memorial Website",
+  "debug": true,
+  "files": {
+    "./src/common.py": "common.py",
+    "./doc/jesse-childhood.md": "./doc/jesse-childhood.md",
+    "./doc/jesse-pre_teen-teen.md": "./doc/jesse-pre_teen-teen.md",
+    "./doc/jesse-high_school-after.md": "./doc/jesse-high_school-after.md",
+    "./doc/jesse-early-2000s.md": "./doc/jesse-early-2000s.md",
+    "./doc/jesse-2010s-teens.md": "./doc/jesse-2010s-teens.md",
+    "./doc/jesse-last-years.md": "./doc/jesse-last-years.md",
+    "./doc/jesse-eulogy-intro.md": "./doc/jesse-eulogy-intro.md",
+    "./doc/jesse-eulogy-final-thoughts.md": "./doc/jesse-eulogy-final-thoughts.md",
+    "./doc/topics/childhood/childhood-001.md": "./doc/topics/childhood/childhood-001.md",
+    "./doc/topics/childhood/childhood-002.md": "./doc/topics/childhood/childhood-002.md",
+    "./doc/topics/general-001.md": "./doc/topics/general-001.md",
+    "./doc/topics/general-002.md": "./doc/topics/general-002.md",
+    "./doc/topics/general-003.md": "./doc/topics/general-003.md"
+  },
+  "js_modules": {
+    "main": {
+      "https://cdn.jsdelivr.net/npm/morphdom@2.7.4/+esm": "morphdom"
+    }
+  },
+  "packages": [
+    "markdown",
+    "puepy"
+  ]
+}
